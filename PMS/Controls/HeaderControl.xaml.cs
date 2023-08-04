@@ -13,15 +13,16 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
-namespace PMS
+// To learn more about WinUI, the WinUI project structure,
+// and more about our project templates, see: http://aka.ms/winui-project-info.
+
+namespace PMS.Controls
 {
-    
-    public sealed partial class MainWindow : Window
+    public sealed partial class HeaderControl : UserControl
     {
-        public MainWindow()
+        public HeaderControl()
         {
             this.InitializeComponent();
         }
-
     }
 }
