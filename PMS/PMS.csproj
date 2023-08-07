@@ -15,6 +15,8 @@
     <None Remove="Assets\logo.png" />
     <None Remove="Controls\FooterControl.xaml" />
     <None Remove="Controls\HeaderControl.xaml" />
+    <None Remove="Pages\AllProjectsPage.xaml" />
+    <None Remove="Pages\ProfilePage.xaml" />
     <None Remove="Resources\Brushes.xaml" />
   </ItemGroup>
 
@@ -43,6 +45,11 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Pages\ProfilePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Controls\FooterControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -54,6 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Resources\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\AllProjectsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
