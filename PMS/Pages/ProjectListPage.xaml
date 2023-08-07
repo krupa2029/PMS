@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="PMS.Pages.ProjectListPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PMS.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:PMS.ViewModels" 
+    xmlns:data="using:PMS.Data"
+    mc:Ignorable="d"
+    Background="{StaticResource MainContainerBackgroundBrush}">
+
+    <Grid Margin="30 10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock Margin="0 20 0 50" Text="Projects >" Style = '{StaticResource TitleTextBlockStyle}'/>
+        </StackPanel>
+
+        <GridView
+        Grid.Row="1"
+        x:Name="ProjectListGridView"
+        IsItemClickEnabled="True"
+        CanDragItems="False"
+        AllowDrop="False"
+        CanReorderItems="False"
+        ItemsSource="{x:Bind ViewModel.ProjectList}" 
+        SelectionMode="Single"
+        SelectionChanged="ProjectListGridView_SelectionChanged"
+        ItemClick="ProjectListGridView_ItemClick"
+        FlowDirection="LeftToRight">
+
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="viewModels:ProjectListItemViewModel">
+                    <StackPanel Width='330' MinHeight='100' Padding="10" Margin="0 10 10 10" Orientation = 'Horizontal' Background="{StaticResource HeaderBackgroundBrush}">
+                        <TextBlock x:Name='title' Style='{StaticResource BaseTextBlockStyle}' Margin='8,0,0,0' 
+                           Text='{x:Bind Title}' RelativePanel.RightOf='image' RelativePanel.AlignTopWithPanel='True'/>
+                    </StackPanel>                   
+
+                </DataTemplate>
+            </GridView.ItemTemplate>
+
+        </GridView>
+    </Grid>
+
+
+</Page>

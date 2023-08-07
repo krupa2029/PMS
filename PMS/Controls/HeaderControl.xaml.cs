@@ -32,7 +32,7 @@ namespace PMS.Controls
                       
             if (args.InvokedItemContainer  == ProjectsNavItem)
             {
-                ContentFrame.Navigate(typeof(AllProjectsPage), args.RecommendedNavigationTransitionInfo);
+                ContentFrame.Navigate(typeof(ProjectListPage), args.RecommendedNavigationTransitionInfo);
             }
 
         

@@ -9,14 +9,15 @@
     <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
     <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
+	<Nullable>Enable</Nullable>
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Assets\logo.png" />
     <None Remove="Controls\FooterControl.xaml" />
     <None Remove="Controls\HeaderControl.xaml" />
-    <None Remove="Pages\AllProjectsPage.xaml" />
     <None Remove="Pages\ProfilePage.xaml" />
+    <None Remove="Pages\ProjectListPage.xaml" />
     <None Remove="Resources\Brushes.xaml" />
   </ItemGroup>
 
@@ -45,6 +46,11 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Pages\ProjectListPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Pages\ProfilePage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -61,11 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Resources\Brushes.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Pages\AllProjectsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
