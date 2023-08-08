@@ -14,6 +14,10 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using PMS.ViewModels;
 using PMS.Data;
+using Windows.UI.Popups;
+using Microsoft.UI;
+using System.Runtime.InteropServices;
+using System.Threading;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -50,5 +54,23 @@ namespace PMS.Pages
         {
 
         }
+
+
+        private void ShowMoreButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Create the content you want to display in the flyout (e.g., a ListView)
+            ListView listView = new ListView();
+
+            
+            // Add your options/items to the ListView
+
+            // Create the Flyout and set its content
+            Flyout flyout = new Flyout();
+            flyout.Content = listView;
+
+            // Show the Flyout anchored to the "Show More" button
+            flyout.ShowAt(sender as FrameworkElement);
+        }
+
     }
 }

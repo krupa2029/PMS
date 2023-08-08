@@ -7,20 +7,30 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:PMS.ViewModels" 
-    xmlns:data="using:PMS.Data"
+    xmlns:data="using:PMS.Data" xmlns:x1="using:System"
     mc:Ignorable="d"
     Background="{StaticResource MainContainerBackgroundBrush}">
 
-    <Grid Margin="30 10">
+    <Grid Margin="40 10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0">
-            <TextBlock Margin="0 20 0 50" Text="Projects >" Style = '{StaticResource TitleTextBlockStyle}'/>
-        </StackPanel>
-
+        <Grid Grid.Row="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" HorizontalAlignment="Left" Margin="0 20 0 30" Text="Projects >" Style = '{StaticResource TitleTextBlockStyle}'/>
+            <Button Grid.Column="1" Margin="10" HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Symbol="Add"/>
+                    <TextBlock Text="Add Project" Margin="5 0 0 0"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+       
         <GridView
         Grid.Row="1"
         x:Name="ProjectListGridView"
@@ -36,11 +46,25 @@
 
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="viewModels:ProjectListItemViewModel">
-                    <StackPanel Width='330' MinHeight='100' Padding="10" Margin="0 10 10 10" Orientation = 'Horizontal' Background="{StaticResource HeaderBackgroundBrush}">
-                        <TextBlock x:Name='title' Style='{StaticResource BaseTextBlockStyle}' Margin='8,0,0,0' 
-                           Text='{x:Bind Title}' RelativePanel.RightOf='image' RelativePanel.AlignTopWithPanel='True'/>
-                    </StackPanel>                   
-
+                    <Grid Width='340' MinHeight='100' Padding="15" Margin="10" Background="{StaticResource HeaderBackgroundBrush}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top">
+                                <SymbolIcon Symbol="More" />                            
+                                <Button.Flyout>
+                                    <Flyout>
+                                        <ListBox Background="{StaticResource HeaderBackgroundBrush}">                                          
+                                            <TextBlock Text="Edit" />
+                                            <TextBlock Text="Delete" />
+                                        </ListBox>                    
+                                    </Flyout>
+                                </Button.Flyout>                            
+                        </Button>                                        
+                        <TextBlock Grid.Column="0" HorizontalAlignment="Left" x:Name='title' Style='{StaticResource BaseTextBlockStyle}' Margin='8,0,0,0' 
+                           Text='{x:Bind Title}' />
+                    </Grid>                                
                 </DataTemplate>
             </GridView.ItemTemplate>
 
